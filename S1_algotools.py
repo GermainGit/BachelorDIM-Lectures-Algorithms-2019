@@ -23,6 +23,10 @@ def average_above_zero(tab_fromList):
     
     if not(isinstance(tab_fromList, list)):
         raise ValueError('average_above_zero expected a list as input')
+    if len(tab_fromList) == 0:
+        raise ValueError('average_above_zero expected a not empty list')
+    if not(isinstance(tab_fromList[0], (int, float))):
+        raise ValueError('average_above_zero expected a list of number')
         
     som=0
     nbOfPositives=0
@@ -42,6 +46,10 @@ def max_value(tab_fromList):
     
     if not(isinstance(tab_fromList, list)):
         raise ValueError('average_above_zero expected a list as input')
+    if len(tab_fromList) == 0:
+        raise ValueError('average_above_zero expected a not empty list')
+    if not(isinstance(tab_fromList[0], (int, float))):
+        raise ValueError('average_above_zero expected a list of number')
         
     maxVal=0
     maxId=0
@@ -61,7 +69,7 @@ tab_list=[1, 2, 3, -4, 6, -9]
 tab_fromList=np.array(tab_list)
 
 print('La moyenne est de :', average_above_zero(tab_list))
-print('La plus grande valeur est :', max_value(tab_list))
+print('La plus grande valeur et son index sont :', max_value(tab_list))
 
         
         
