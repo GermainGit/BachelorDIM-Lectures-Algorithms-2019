@@ -72,10 +72,12 @@ def reverse_table(tab_fromList):
         raise ValueError('average_above_zero expected a list of number')
         
     len_tab = len(tab_fromList)
-    
     for id in range(len(tab_fromList)):
-        memVal = tab_fromList[id-1]
-        tab_fromList.pop()
+        memVal = tab_fromList[len(tab_fromList)-1]
+        tab_fromList.pop(len(tab_fromList)-1)    
+        tab_fromList.insert(id, memVal)
+    
+    return tab_fromList
         
         
         
@@ -88,8 +90,4 @@ tab_fromList=np.array(tab_list)
 
 print('La moyenne est de :', average_above_zero(tab_list))
 print('La plus grande valeur et son index sont :', max_value(tab_list))
-
-        
-        
-
-
+print('Le tableau inversé est :', reverse_table(tab_list))
