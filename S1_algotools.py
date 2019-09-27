@@ -13,10 +13,9 @@ What can you expect if all the values are below zero ?
 
 ----- An error because we can't divid up by zero.
 
-
-TODO vérifier que tab_list est bien un liste, verifier qu'il n'y est pas que des négatifs ou en tout cas pas diviser pa 0
 '''
 import numpy as np
+
 
 
 def average_above_zero(tab_fromList):
@@ -61,6 +60,25 @@ def max_value(tab_fromList):
             maxId = id-1
         
     return float(maxVal), int(maxId)
+
+
+def reverse_table(tab_fromList):
+    
+    if not(isinstance(tab_fromList, list)):
+        raise ValueError('average_above_zero expected a list as input')
+    if len(tab_fromList) == 0:
+        raise ValueError('average_above_zero expected a not empty list')
+    if not(isinstance(tab_fromList[0], (int, float))):
+        raise ValueError('average_above_zero expected a list of number')
+        
+    len_tab = len(tab_fromList)
+    
+    for id in range(len(tab_fromList)):
+        memVal = tab_fromList[id-1]
+        tab_fromList.pop()
+        
+        
+        
 
 
 
