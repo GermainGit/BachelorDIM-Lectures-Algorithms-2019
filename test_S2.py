@@ -9,7 +9,7 @@ import S1_algotools_teacherdemo as algotools
 import pytest
 
         
-def test_average_above_zero_working1():
+def test_average_above_zero_goodResult():
     tab_list=[1, 2, 3, -4, 6, -9]
     test, lastID= algotools.average_above_zero(tab_list)
     assert test == 3

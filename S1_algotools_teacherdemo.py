@@ -14,7 +14,6 @@ What can you expect if all the values are below zero ?
 ----- An error because we can't divid up by zero.
 
 '''
-import pytest
 import numpy as np
 
 # =============================================================================
@@ -135,14 +134,17 @@ def roi_bbox(matrix):
                 
 
 
-img = cv2.imread('img.png',0)
-
-tab_list =[1, 2, 3, -4, 6, -9]
-tab_fromList=np.array(tab_list)
-
-
-    
-print('La moyenne est de :', average_above_zero(tab_list))
-print('La plus grande valeur et son index sont :', max_value(tab_list))
-print('Le tableau inversé est :', reverse_table(tab_list))
-print('Bounding result :', roi_bbox(img))
+# =============================================================================
+# img = cv2.imread('img.png',0)
+# 
+# tab_list =[1, 2, 3, -4, 6, -9]
+# tab_fromList=np.array(tab_list)
+# 
+# 
+#     
+# print('La moyenne est de :', average_above_zero(tab_list))
+# print('La plus grande valeur et son index sont :', max_value(tab_list))
+# print('Le tableau inversé est :', reverse_table(tab_list))
+# print('Bounding result :', roi_bbox(img))
+# 
+# =============================================================================
