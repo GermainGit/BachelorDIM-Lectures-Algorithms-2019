@@ -25,7 +25,7 @@ import numpy as np
 def average_above_zero(tab_fromList):
     
     if not(isinstance(tab_fromList, list)):
-        raise ValueError('average_above_zero expected a list as input')
+        raise TypeError('average_above_zero expected a list as input')
     if len(tab_fromList) == 0:
         raise ValueError('average_above_zero expected a not empty list')
     if not(isinstance(tab_fromList[0], (int, float))):
