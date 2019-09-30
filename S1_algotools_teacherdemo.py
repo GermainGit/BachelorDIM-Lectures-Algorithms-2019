@@ -27,21 +27,23 @@ def average_above_zero(tab_fromList):
         raise TypeError('average_above_zero expected a list as input')
     if len(tab_fromList) == 0:
         raise ValueError('average_above_zero expected a not empty list')
-    if not(isinstance(tab_fromList[0], (int, float))):
-        raise ValueError('average_above_zero expected a list of number')
         
     som=0
     nbOfPositives=0
     
     for id in range(len(tab_fromList)):
+        
+        if not(isinstance(tab_fromList[id], (int, float))):
+            raise ValueError('average_above_zero expected a list of number')
     
         if tab_fromList[id] > 0:
             som=som+tab_fromList[id]
             nbOfPositives+=1
+            
     if nbOfPositives != 0:
         return som / nbOfPositives
     else:
-        raise ValueError('average_above_zero expected positive number')
+        raise ZeroDivisionError('average_above_zero expected positive number')
 
 # =============================================================================
 # Exercice n°2
@@ -141,7 +143,8 @@ def roi_bbox(matrix):
 # tab_fromList=np.array(tab_list)
 # 
 # 
-#     
+#
+# tab_list="salut"     
 # print('La moyenne est de :', average_above_zero(tab_list))
 # print('La plus grande valeur et son index sont :', max_value(tab_list))
 # print('Le tableau inversé est :', reverse_table(tab_list))

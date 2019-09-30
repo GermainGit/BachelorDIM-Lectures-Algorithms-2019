@@ -11,8 +11,8 @@ import pytest
         
 def test_average_above_zero_goodResult():
     tab_list=[1, 2, 3, -4, 6, -9]
-    test, lastID= algotools.average_above_zero(tab_list)
-    assert test == 3
+    test=algotools.average_above_zero(tab_list)
+    assert test == 3.0
     
 def test_average_above_zero_listInput():
     tab_list="salut"
