@@ -14,7 +14,6 @@ What can you expect if all the values are below zero ?
 ----- An error because we can't divid up by zero.
 
 '''
-import S1_algotools_teacherdemo as algotools
 import pytest
 import numpy as np
 
