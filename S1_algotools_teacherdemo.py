@@ -14,6 +14,8 @@ What can you expect if all the values are below zero ?
 ----- An error because we can't divid up by zero.
 
 '''
+import S1_algotools_teacherdemo as algotools
+import pytest
 import numpy as np
 
 # =============================================================================
@@ -138,6 +140,8 @@ img = cv2.imread('img.png',0)
 
 tab_list =[1, 2, 3, -4, 6, -9]
 tab_fromList=np.array(tab_list)
+
+
     
 print('La moyenne est de :', average_above_zero(tab_list))
 print('La plus grande valeur et son index sont :', max_value(tab_list))
