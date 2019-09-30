@@ -12,13 +12,18 @@ img_bgr=cv2.imread('img_s3.png',1)
 
 print("Gray levels image shape = "+str(img_gray.shape))
 print("BGR image shape = "+str(img_bgr.shape))
-# =============================================================================
-# cv2.imshow("Gray levels image", img_gray)
-# cv2.imshow("BGR image", img_bgr)
-# =============================================================================
+
 cv2.waitKey()
 
+def invert_colors_manual(input_img):
+    img_reverse=255-input_img
+    cv2.imshow("BGR image", img_reverse)
+    
+invert_colors_manual(img_bgr)
+
 # =============================================================================
+# ####  EXEMPLE A NE PAS FAIRE
+#
 # #def invert_colors_manual(input_img):
 #     ## Function which return an image with reverse color
 #     #
@@ -38,5 +43,4 @@ cv2.waitKey()
 # =============================================================================
     
     
-img_reverse=255-img_bgr
-cv2.imshow("BGR image", img_reverse)
+
