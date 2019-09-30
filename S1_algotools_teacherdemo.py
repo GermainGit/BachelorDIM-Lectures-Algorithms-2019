@@ -22,6 +22,12 @@ import numpy as np
 
 
 def average_above_zero(tab_fromList):
+    ## Function which return the average of number above zero
+    #
+    # @param tab_fromList: list
+    # return float
+    # @raise TypeError when the list isn't a list
+    # @raises ValueError when if the list is empty or if the content of the list isn't int or float
     
     if not(isinstance(tab_fromList, list)):
         raise TypeError('average_above_zero expected a list as input')
@@ -50,6 +56,12 @@ def average_above_zero(tab_fromList):
 # =============================================================================
         
 def max_value(tab_fromList):
+    ## Function which return the max value of a list and his index
+    #
+    # @param tab_fromList: list
+    # return float and int
+    # @raise TypeError when the list isn't a list
+    # @raises ValueError when if the list is empty or if the content of the list isn't int or float
     
     if not(isinstance(tab_fromList, list)):
         raise ValueError('average_above_zero expected a list as input')
@@ -74,6 +86,12 @@ def max_value(tab_fromList):
 # =============================================================================
 
 def reverse_table(tab_fromList):
+    ## Function which return the reverse of a list
+    #
+    # @param tab_fromList: list
+    # return list
+    # @raise TypeError when the list isn't a list
+    # @raises ValueError when if the list is empty or if the content of the list isn't int or float
     
     if not(isinstance(tab_fromList, list)):
         raise ValueError('average_above_zero expected a list as input')
@@ -95,6 +113,12 @@ def reverse_table(tab_fromList):
 import cv2
 
 def roi_bbox(matrix):
+    ## Function which return the box bounding of a white form on an image
+    #
+    # @param tab_fromList: list
+    # return list
+    # @raise TypeError when the list isn't a list
+    # @raises ValueError when if the list is empty or if the content of the list isn't int or float
     
     minCol=matrix.shape[1]
     minRow=matrix.shape[0]
