@@ -20,11 +20,7 @@ parser.add_argument("-read",
 parser.add_argument("-publish",
                     action='store_true')
 args = parser.parse_args()
-if args.read:
-    print("read mode turned on")
-elif args.publish:
-    print("Publish mode turned on")
-    
+
     
 if args.read:
     read.checkMyQueue()

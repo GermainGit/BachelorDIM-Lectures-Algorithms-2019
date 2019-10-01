@@ -8,9 +8,13 @@ Created on Mon Sep 30 16:13:10 2019
 import os
 import pika
 
+nbOfRead=1
 
 def callback(ch, method, properties, body):
+    global nbOfRead
     print(" [x] Received %r" % body)
+    print('Vous avez lu', nbOfRead, 'messages')
+    nbOfRead+=1
  
 
 def checkMyQueue():
