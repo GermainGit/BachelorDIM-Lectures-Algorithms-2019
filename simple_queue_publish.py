@@ -23,13 +23,16 @@ def connectMe():
     
     channel = connection.channel()
     
-    channel.queue_declare(queue='presentation')
+    channel.queue_declare(queue='coucou')
+    
+    return channel, connection
 
-def sendMyMessage():
+def sendMyMessage(channel, connection):
+    
 
     
     channel.basic_publish(exchange='',
-                              routing_key='presentation',
+                              routing_key='coucou',
                               body='Hello World !')
                               
     print(" [x] Sent 'Hello World!'")
@@ -37,16 +40,24 @@ def sendMyMessage():
     connection.close()
     
     
-def sendMyMessageConcurency():
-    
+def sendMyMessageConcurency(channel, connection):
+        
     channel.basic_publish(exchange='',
-                              routing_key='presentation',
+                              routing_key='coucou',
                               body='Hello World !',
                               properties=pika.BasicProperties(
-                                      delivery_mode = 2,))
+                                      delivery_mode = 2))
                               
     print(" [x] Sent 'Hello World! ")
         
     connection.close()
+    
+def publish(concurrency):
+    channel, connection = connectMe()
+    if concurrency :
+        sendMyMessageConcurency(channel, connection)
+    else:
+        sendMyMessage(channel, connection)
+        
     
     

@@ -16,6 +16,7 @@ def callback(ch, method, properties, body):
     print(" [x] Received %r" % body)
     print('Vous avez lu', nbOfRead, 'messages')
     nbOfRead+=1
+    print(method.delivery_tag)
     ch.basic_ack(delivery_tag= method.delivery_tag)
 
 def checkMyQueue():
@@ -31,9 +32,9 @@ def checkMyQueue():
     
     channel = connection.channel()
     
-    queue = channel.queue_declare(queue='presentation')
+    queue = channel.queue_declare(queue='coucou')
     
-    channel.basic_consume(queue='presentation',
+    channel.basic_consume(queue='coucou',
                               on_message_callback=callback,                          
                               auto_ack=True)
     print('Vous avez :',queue.method.message_count,' message en file d\'attente')

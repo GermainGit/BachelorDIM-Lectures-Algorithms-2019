@@ -7,7 +7,6 @@ Created on Tue Oct  1 08:58:18 2019
 
 
 import argparse
-import config
 import simple_queue_read as read
 import simple_queue_publish as publish
 
@@ -34,6 +33,6 @@ args = parser.parse_args()
 if args.read:
     read.checkMyQueue()
 elif args.publish :
-    publish.sendMyMessage()
-elif publish.concurency:
-    publish.sendMyMessageConcurency()    
+    publish.publish(False)
+elif args.concurency:
+    publish.publish(True)    

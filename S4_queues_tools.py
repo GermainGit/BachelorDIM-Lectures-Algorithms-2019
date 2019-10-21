@@ -16,8 +16,6 @@ def callback(ch, method, properties, body):
     
 amqp_url=config.amqp_url
 
-print(amqp_url)
-
 # Parse CLODUAMQP_URL (fallback to localhost)
 url = os.environ.get('CLOUDAMQP_URL',amqp_url)
 params = pika.URLParameters(url)
