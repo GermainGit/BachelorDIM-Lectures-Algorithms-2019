@@ -7,10 +7,9 @@ Created on Tue Oct  1 08:58:18 2019
 
 
 import argparse
+import config
 import simple_queue_read as read
 import simple_queue_publish as publish
-
-nbOfRead=0
 
 
 parser = argparse.ArgumentParser()
@@ -19,10 +18,22 @@ parser.add_argument("-read",
 
 parser.add_argument("-publish",
                     action='store_true')
+
+parser.add_argument("-concurency",
+                    action='store_true')
+
 args = parser.parse_args()
+
+
+# =============================================================================
+# When you call this script, you can add an argument to call different function : Publish or Read mode
+# Example : $ python queue_publish_read.py -read
+# =============================================================================
 
     
 if args.read:
     read.checkMyQueue()
 elif args.publish :
     publish.sendMyMessage()
+elif publish.concurency:
+    publish.sendMyMessageConcurency()    

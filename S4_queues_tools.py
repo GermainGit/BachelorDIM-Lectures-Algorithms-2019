@@ -7,13 +7,16 @@ Created on Mon Sep 30 15:49:12 2019
 
 import os
 import pika
+import config
 
 mode='_SEND'
 
 def callback(ch, method, properties, body):
     print(" [x] Received %r" % body)
     
-amqp_url='amqp://qiwsedps:WMXj527zSKlGKFACO2IRj_ZEr4LRU3jg@dove.rmq.cloudamqp.com/qiwsedps'
+amqp_url=config.amqp_url
+
+print(amqp_url)
 
 # Parse CLODUAMQP_URL (fallback to localhost)
 url = os.environ.get('CLOUDAMQP_URL',amqp_url)

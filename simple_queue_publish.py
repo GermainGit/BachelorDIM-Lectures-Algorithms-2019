@@ -3,15 +3,16 @@
 Created on Mon Sep 30 16:09:50 2019
 
 @author: prevotge
+
 """
 
 
 import os
 import pika
+import config
 
-def sendMyMessage():
-
-    amqp_url='amqp://qiwsedps:WMXj527zSKlGKFACO2IRj_ZEr4LRU3jg@dove.rmq.cloudamqp.com/qiwsedps'
+def connectMe():
+    amqp_url=config.amqp_url
     
     # Parse CLODUAMQP_URL (fallback to localhost)
     url = os.environ.get('CLOUDAMQP_URL',amqp_url)
@@ -23,6 +24,9 @@ def sendMyMessage():
     channel = connection.channel()
     
     channel.queue_declare(queue='presentation')
+
+def sendMyMessage():
+
     
     channel.basic_publish(exchange='',
                               routing_key='presentation',
@@ -31,3 +35,18 @@ def sendMyMessage():
     print(" [x] Sent 'Hello World!'")
         
     connection.close()
+    
+    
+def sendMyMessageConcurency():
+    
+    channel.basic_publish(exchange='',
+                              routing_key='presentation',
+                              body='Hello World !',
+                              properties=pika.BasicProperties(
+                                      delivery_mode = 2,))
+                              
+    print(" [x] Sent 'Hello World! ")
+        
+    connection.close()
+    
+    
